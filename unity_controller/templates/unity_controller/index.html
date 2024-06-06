@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport"#}
+{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+    <title>Unity Controller</title>
+
+</head>
+<body>
+{#    <script>#}
+        {#window.url={#}
+        {#    ws_url: 'wss:' + window.local.host+ '/ws/control'#}
+
+{#    </script>#}
+
+
+
+        <input type="hidden" id="wsurl" value="{{ WS_URL }}">
+        <button onclick=sendCommand("forward")>forward</button>
+
+    <script src="{% static 'unity_controller/controller.js' %}"></script>
+{#    <button onclick=sendCommand("forward")>forward</button>#}
+{#    <button onclick=sendCommand("backward")>backward</button>#}
+
+</body>
+</html>

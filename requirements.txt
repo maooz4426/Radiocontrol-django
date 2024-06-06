@@ -1,0 +1,10 @@
+Django
+psycopg2
+websockets
+whitenoise
+djangorestframework
+#websocketを使うために必要
+channels
+channels-redis
+daphne
+Twisted
