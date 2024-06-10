@@ -43,6 +43,6 @@ class RadioControlConsumer(AsyncWebsocketConsumer):
                 "message": commands
             }
         )
-    # async def chat_message(self, event):
-    #     message = event["message"]
-    #     await self.send(text_data = json.dumps(message))
+    async def chat_message(self, event):
+        message = event["message"]
+        await self.send(text_data = json.dumps(message))
