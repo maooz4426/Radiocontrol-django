@@ -8,6 +8,27 @@
 {#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
     <title>Unity Controller</title>
 
+    <style>
+{#        https://bagelee.com/design/css/css-triangle/#}
+    .arrows{
+        text-align: center;
+    }
+    .arrow-t{
+
+          width: 0;
+          height: 0;
+          border-left: 30px solid transparent;
+          border-right: 30px solid transparent;
+          border-bottom: 30px solid black;
+    }
+
+    .arrows-t{
+
+    }
+
+
+    </style>
+
 </head>
 <body>
 {#    <script>#}
@@ -16,10 +37,12 @@
 
 {#    </script>#}
 
-
-
         <input type="hidden" id="wsurl" value="{{ WS_URL }}">
-        <button onclick=sendCommand("forward")>forward</button>
+<div class="arrows">
+{#    <button type="hidden" onclick=sendCommand("forward") class="arrow-t"></button>#}
+    <a onclick=sendCommand("forward") class="arrow-t"></a>
+</div>
+
 
     <script src="{% static 'unity_controller/controller.js' %}"></script>
 {#    <button onclick=sendCommand("forward")>forward</button>#}
