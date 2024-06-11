@@ -1,7 +1,7 @@
 // const url = document.getElementById('wsurl').value;
 // console.log(url);
 
-const ws = new WebSocket('ws://' + window.location.host + '/ws/control/')
+const ws = new WebSocket('wss://' + window.location.host + '/ws/control/')
 console.log('ws://' + window.location.host + '/ws/control/')
 ws.onopen = () => {
   console.log('WebSocket is connected');
