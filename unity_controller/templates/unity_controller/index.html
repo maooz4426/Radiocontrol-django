@@ -65,7 +65,8 @@
         <input type="hidden" id="wsurl" value="{{ WS_URL }}">
 <div class="arrows">
 
-    <a onclick=sendCommand("forward") class="arrow-f"></a>
+{#    <a onclick=sendCommand("forward") class="arrow-f"></a>#}
+    <a ontouchstart="onTouchStart(event, 'forward')" ontouchend="onTouchEnd()" class="arrow-f"></a>
     <a onclick=sendCommand("backward") class="arrow-b"></a>
     <a onclick=sendCommand("rightward") class="arrow-r"></a>
     <a onclick=sendCommand("leftward") class="arrow-l"></a>

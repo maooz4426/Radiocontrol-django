@@ -6,6 +6,18 @@ ws.onopen = () => {
   console.log('WebSocket is connected');
 };
 
+let pressTimer;
+function onTouchStart(event, command) {
+    event.preventDefault();
+    pressTimer = window.setTimeout(function() {
+      sendCommand(command);
+    }, 1000);
+  }
+  function onTouchEnd(){
+    clearTimeout(pressTimer);
+  }
+
+
 function sendCommand(command) {
   ws.send(JSON.stringify({'command': command}));
 }
