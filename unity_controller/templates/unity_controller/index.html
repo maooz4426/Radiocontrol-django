@@ -24,6 +24,10 @@
         border-bottom: 30px solid black;
         float: left;
     }
+    .arrow-f:active{
+        border-bottom: 30px solid red;
+    }
+
     .arrow-b{
         margin: 20px 10px;
         width: 0;
@@ -34,8 +38,12 @@
         border-right: 30px solid transparent;
 
     }
-    .arrow-r{
 
+    .arrow-b:active{
+        border-top: 30px solid red;
+    }
+
+    .arrow-r{
         width: 0;
         height: 0;
         border-top: 30px solid transparent;
@@ -44,6 +52,10 @@
         float: left;
         margin: 0px 10px;
     }
+    .arrow-r:active{
+        border-left: 30px solid red;
+    }
+
     .arrow-l{
         width: 0;
         height: 0;
@@ -52,6 +64,9 @@
         border-bottom: 30px solid transparent;
         float: left;
         margin: 0px 10px;
+    }
+    .arrow-l:active{
+        border-right: 30px solid red;
     }
 
 
@@ -67,9 +82,12 @@
 
 {#    <a onclick=sendCommand("forward") class="arrow-f"></a>#}
     <a ontouchstart="onTouchStart(event, 'forward')" ontouchend="onTouchEnd()" class="arrow-f"></a>
-    <a onclick=sendCommand("backward") class="arrow-b"></a>
-    <a onclick=sendCommand("rightward") class="arrow-r"></a>
-    <a onclick=sendCommand("leftward") class="arrow-l"></a>
+    <a ontouchstart="onTouchStart(event, 'backward')" ontouchend="onTouchEnd()" class="arrow-b"></a>
+    <a ontouchstart="onTouchStart(event, 'rightward')" ontouchend="onTouchEnd()" class="arrow-r"></a>
+    <a ontouchstart="onTouchStart(event, 'leftward')" ontouchend="onTouchEnd()" class="arrow-l"></a>
+{#    <a onclick=sendCommand("backward") class="arrow-b"></a>#}
+{#    <a onclick=sendCommand("rightward") class="arrow-r"></a>#}
+{#    <a onclick=sendCommand("leftward") class="arrow-l"></a>#}
 </div>
 
 

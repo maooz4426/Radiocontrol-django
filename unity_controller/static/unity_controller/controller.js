@@ -7,14 +7,21 @@ ws.onopen = () => {
 };
 
 let pressTimer;
+
+let intervalId;
 function onTouchStart(event, command) {
     event.preventDefault();
     pressTimer = window.setTimeout(function() {
-      sendCommand(command);
-    }, 1000);
+        intervalId = window.setInterval(function (){
+             sendCommand(command);
+        },50
+        )
+
+    }, 50);
   }
   function onTouchEnd(){
     clearTimeout(pressTimer);
+    clearInterval(intervalId);
   }
 
 
