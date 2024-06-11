@@ -1,5 +1,5 @@
-const url = document.getElementById('wsurl').value;
-console.log(url);
+// const url = document.getElementById('wsurl').value;
+// console.log(url);
 
 const ws = new WebSocket('ws://' + window.location.host + '/ws/control/')
 
