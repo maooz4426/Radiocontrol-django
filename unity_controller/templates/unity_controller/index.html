@@ -2,16 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{#    <meta charset="UTF-8">#}
+    <meta charset="UTF-8">
 <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Unity Controller</title>
 
     <style>
 {#        https://bagelee.com/design/css/css-triangle/#}
     .arrows{
-            display: flex;
-            justify-content: center;
+
+        display: flex;
+        justify-content: center;
 
     }
     .arrow-f{
@@ -53,24 +54,17 @@
         margin: 0px 10px;
     }
 
-    .arrows-t{
-
-    }
 
 
     </style>
 
 </head>
 <body>
-{#    <script>#}
-        {#window.url={#}
-        {#    ws_url: 'wss:' + window.local.host+ '/ws/control'#}
 
-{#    </script>#}
 
         <input type="hidden" id="wsurl" value="{{ WS_URL }}">
 <div class="arrows">
-{#    <button type="hidden" onclick=sendCommand("forward") class="arrow-t"></button>#}
+
     <a onclick=sendCommand("forward") class="arrow-f"></a>
     <a onclick=sendCommand("backward") class="arrow-b"></a>
     <a onclick=sendCommand("rightward") class="arrow-r"></a>
