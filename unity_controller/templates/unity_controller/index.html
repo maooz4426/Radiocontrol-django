@@ -12,14 +12,43 @@
 {#        https://bagelee.com/design/css/css-triangle/#}
     .arrows{
         text-align: center;
-    }
-    .arrow-t{
 
-          width: 0;
-          height: 0;
-          border-left: 30px solid transparent;
-          border-right: 30px solid transparent;
-          border-bottom: 30px solid black;
+    }
+    .arrow-f{
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid black;
+        float: left;
+    }
+    .arrow-b{
+
+            width: 0;
+        height: 0;
+        border-top: 30px solid black;
+        float: left;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+
+    }
+    .arrow-r{
+
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-left: 30px solid black;
+        border-bottom: 30px solid transparent;
+        float: left;
+    }
+    .arrow-l{
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-right: 30px solid black;
+        border-bottom: 30px solid transparent;
+        float: left;
+        margin: 0px 10px;
     }
 
     .arrows-t{
@@ -40,7 +69,10 @@
         <input type="hidden" id="wsurl" value="{{ WS_URL }}">
 <div class="arrows">
 {#    <button type="hidden" onclick=sendCommand("forward") class="arrow-t"></button>#}
-    <a onclick=sendCommand("forward") class="arrow-t"></a>
+    <a onclick=sendCommand("forward") class="arrow-f"></a>
+    <a onclick=sendCommand("backward") class="arrow-b"></a>
+    <a onclick=sendCommand("rightward") class="arrow-r"></a>
+    <a onclick=sendCommand("leftward") class="arrow-l"></a>
 </div>
 
 
