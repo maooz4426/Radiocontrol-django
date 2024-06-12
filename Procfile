@@ -1,1 +1,1 @@
-web: daphne -b 0.0.0.0 -p 8000 RadioControl.asgi:application
+web: daphne RadioControl.asgi:application --port $PORT --bind 0.0.0.0 -v2
