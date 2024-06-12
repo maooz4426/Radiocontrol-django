@@ -25,6 +25,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'unity_controller',
     'django.contrib.admin',
     'django.contrib.auth',
