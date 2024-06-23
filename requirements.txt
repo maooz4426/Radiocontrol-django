@@ -7,4 +7,5 @@ djangorestframework
 channels
 channels-redis
 daphne
-Twisted
+twisted[tls,http2]
+django_heroku

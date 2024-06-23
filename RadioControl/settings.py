@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,6 +16,8 @@ SECRET_KEY = 'django-insecure-#1r5x$oft-b%8uhqbx0z9pk^sbax$-z=kyu+5!7sg8)!*aukv0
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+if not DEBUG:
+    django_heroku.settings(locals())
 
 ALLOWED_HOSTS = [
     '*',
@@ -25,6 +28,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'unity_controller',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,7 +40,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
 
-'whitenoise.middleware.WhiteNoiseMiddleware',#redisサーバー使ってるので必要
+    'whitenoise.middleware.WhiteNoiseMiddleware',#redisサーバー使ってるので必要
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,8 +78,8 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            # 'hosts': [os.getenv('REDIS_URL')], # import os を忘れないように
-        'hosts': [('192.168.50.218', 6379)],
+            'hosts': [os.getenv('REDIS_URL')], # import os を忘れないように
+        # 'hosts': [('192.168.50.218', 6379)],
         },
     },
 }
@@ -128,11 +132,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-# STATIC_URL = 'static/'
-# STATICFILES_DIRS =[
-#     os.path.join(BASE_DIR, 'static'),
-# ]
 
 
 # Default primary key field type
@@ -140,12 +139,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
-    "http://192.168.50.218:8000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     # "http://localhost:8000",
+#     # "http://192.168.50.218:8000",
+#     "*"
+# ]
+CORS_ALLOW_ALL_ORIGINS = True
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-    "http://192.168.50.218:8000",
-]
+# WebSocketのためのCORS設定
+# CSRF_TRUSTED_ORIGINS = [
+#     # "http://localhost:8000",
+#     # "http://192.168.50.218:8000",
+#     "*"
+# ]

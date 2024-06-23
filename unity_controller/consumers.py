@@ -7,8 +7,6 @@ class RadioControlConsumer(AsyncWebsocketConsumer):
         print("connect")
         await self.accept()
 
-        # await self.channel_layer.group_add();
-
     async def disconnect(self, close_code):
         await self.channel_layer.group_discard("group1",self.channel_name)
         print('WebSocket disconnected:', close_code)
@@ -21,24 +19,14 @@ class RadioControlConsumer(AsyncWebsocketConsumer):
 
         try:
             data = json.loads(text_data)
-            # # command = text_data_json.get('command')
-
         except json.JSONDecodeError as e:
+            print(e)
             return
-
-        # command = data.get('command')
-
-
-
-        # print(command)
 
         # Unityに対するコマンド処理
         commands ={
             "command": data.get("command",""),
         }
-
-
-        # print(response)
 
 
         #ここまでOK
@@ -52,6 +40,6 @@ class RadioControlConsumer(AsyncWebsocketConsumer):
                 "message": commands
             }
         )
-    # async def chat_message(self, event):
-    #     message = event["message"]
-    #     await self.send(text_data = json.dumps(message))
+    async def chat_message(self, event):
+        message = event["message"]
+        await self.send(text_data = json.dumps(message))
