@@ -1,9 +1,9 @@
+const url = 'ws://' + window.location.host + '/ws/control/'
 
+const ws = new WebSocket(url)
 
+console.log(url)
 
-
-const ws = new WebSocket('wss://' + window.location.host + '/ws/control/')
-console.log('ws://' + window.location.host + '/ws/control/')
 ws.onopen = () => {
   console.log('WebSocket is connected');
 };
@@ -11,12 +11,29 @@ ws.onopen = () => {
 let pressTimer;
 
 let intervalId;
+
+//パソコンでクリックされたら
+function onStart(command){
+    pressTimer = window.setTimeout(function (){
+        intervalId = window.setInterval(function (){
+            sendCommand(command);
+        },1000
+        )
+    },50)
+}
+
+function onEnd() {
+    clearTimeout(pressTimer);
+    clearInterval(intervalId);
+}
+
+//スマホでタッチされたら
 function onTouchStart(event, command) {
     event.preventDefault();
     pressTimer = window.setTimeout(function() {
         intervalId = window.setInterval(function (){
              sendCommand(command);
-        },50
+        },1000
         )
 
     }, 50);

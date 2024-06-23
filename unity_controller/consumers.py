@@ -29,9 +29,6 @@ class RadioControlConsumer(AsyncWebsocketConsumer):
         }
 
 
-        # print(response)
-
-
         #ここまでOK
         await self.send(text_data = json.dumps(commands))
         print('Sent message:', commands)

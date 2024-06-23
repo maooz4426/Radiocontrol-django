@@ -8,3 +8,4 @@ channels
 channels-redis
 daphne
 twisted[tls,http2]
+django_heroku
